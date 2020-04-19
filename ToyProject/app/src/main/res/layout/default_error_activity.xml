@@ -7,7 +7,7 @@
 
         <variable
             name="view"
-            type="com.template.nanamare.base.ui.BaseDefaultErrorActivity" />
+            type="com.template.nanamare.presentation.base.ui.BaseDefaultErrorActivity" />
 
     </data>
 

@@ -1,8 +1,8 @@
 package com.template.nanamare.data.source.impl
 
 import com.template.nanamare.data.enum.RequestMovieApiType
-import com.template.nanamare.network.response.BaseErrorResponse
-import com.template.nanamare.network.response.MovieResponse
+import com.template.nanamare.data.network.response.BaseErrorResponse
+import com.template.nanamare.data.network.response.MovieResponse
 
 interface MovieDataSource {
     fun requestMovies(

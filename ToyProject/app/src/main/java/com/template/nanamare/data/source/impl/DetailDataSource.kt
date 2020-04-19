@@ -1,6 +1,6 @@
 package com.template.nanamare.data.source.impl
 
-import com.template.nanamare.network.response.DetailResponse
+import com.template.nanamare.data.network.response.DetailResponse
 import io.reactivex.Single
 import retrofit2.Response
 

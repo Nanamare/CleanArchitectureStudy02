@@ -1,6 +1,6 @@
 package com.template.nanamare.di
 
-import com.template.nanamare.network.api.movie.*
+import com.template.nanamare.data.network.api.movie.*
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit

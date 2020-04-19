@@ -7,7 +7,7 @@ buildscript {
         minSdkVersion = 21
         targetSdkVersion = 29
 
-        androidGradleVersion = '3.3.1'
+        androidGradleVersion = '3.6.3'
         androidBundleTools = '0.9.0'
         fabricGradleVersion = '1.28.0'
         kotlin_version = '1.3.61'

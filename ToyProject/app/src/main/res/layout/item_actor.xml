@@ -5,7 +5,7 @@
 
         <variable
             name="actor"
-            type="com.template.nanamare.data.vo.Actor" />
+            type="com.template.nanamare.presentation.model.ActorPresentation" />
     </data>
 
     <LinearLayout

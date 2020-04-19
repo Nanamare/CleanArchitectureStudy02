@@ -1,6 +1,6 @@
 package com.template.nanamare.ext
 
-import com.template.nanamare.network.response.BaseResponse
+import com.template.nanamare.data.network.response.BaseResponse
 import io.reactivex.Single
 import retrofit2.Response
 

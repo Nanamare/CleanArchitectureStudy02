@@ -6,7 +6,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.template.nanamare.BuildConfig
-import com.template.nanamare.ui.anim.RotateTransformation
+import com.template.nanamare.presentation.anim.RotateTransformation
 
 @BindingAdapter(value = ["loadUrl"])
 fun ImageView.loadUrl(url: String?) {

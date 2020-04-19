@@ -2,7 +2,7 @@ package com.template.nanamare
 
 import android.app.Application
 import com.google.android.play.core.missingsplits.MissingSplitsManagerFactory
-import com.template.nanamare.base.ui.BaseExceptionHandler
+import com.template.nanamare.presentation.base.ui.BaseExceptionHandler
 import com.template.nanamare.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger

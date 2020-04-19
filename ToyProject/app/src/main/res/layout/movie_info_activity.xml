@@ -7,11 +7,11 @@
 
         <variable
             name="vm"
-            type="com.template.nanamare.vm.MovieInfoViewModel" />
+            type="com.template.nanamare.presentation.vm.MovieInfoViewModel" />
 
         <variable
             name="actorAdapter"
-            type="com.template.nanamare.base.ui.SimpleRecyclerView.Adapter" />
+            type="com.template.nanamare.presentation.base.ui.SimpleRecyclerView.Adapter" />
 
     </data>
 

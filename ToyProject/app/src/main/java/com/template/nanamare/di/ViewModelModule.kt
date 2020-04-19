@@ -1,10 +1,10 @@
 package com.template.nanamare.di
 
-import com.template.nanamare.base.navigator.BaseNavigator
-import com.template.nanamare.vm.MainViewModel
-import com.template.nanamare.vm.MovieCategoryViewModel
-import com.template.nanamare.vm.MovieInfoViewModel
-import com.template.nanamare.vm.VideoViewModel
+import com.template.nanamare.presentation.base.navigator.BaseNavigator
+import com.template.nanamare.presentation.vm.MainViewModel
+import com.template.nanamare.presentation.vm.MovieCategoryViewModel
+import com.template.nanamare.presentation.vm.MovieInfoViewModel
+import com.template.nanamare.presentation.vm.VideoViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

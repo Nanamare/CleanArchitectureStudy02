@@ -13,4 +13,6 @@
 
     <string name="see_sample_movie">View trailer</string>
 
+    <string name="empty_movie_url">Oops, Sorry empty trailer!</string>
+
 </resources>

@@ -50,6 +50,9 @@ class VideoFragment(private val liveVideoUrl: String? = null) :
                         seekTo(currentWindowIndex, 0)
                         prepare(videoSource, false, false)
                     }
+                } ?: run {
+                    showToast(R.string.empty_movie_url)
+                    dismiss()
                 }
             }
         }.extract(videoViewModel.liveVideoPath.value, true, true)
@@ -58,6 +61,10 @@ class VideoFragment(private val liveVideoUrl: String? = null) :
 
     override fun onStop() {
         super.onStop()
+        releasePlayer()
+    }
+
+    private fun releasePlayer() {
         binding.videoView.player?.release()
     }
 

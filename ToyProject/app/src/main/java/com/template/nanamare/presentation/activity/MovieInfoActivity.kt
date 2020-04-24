@@ -12,11 +12,12 @@ import com.template.nanamare.presentation.model.ActorPresentation
 import com.template.nanamare.databinding.ItemActorBinding
 import com.template.nanamare.databinding.MovieInfoActivityBinding
 import com.template.nanamare.data.network.NetworkState
-import com.template.nanamare.data.network.response.VideoResponse
 import com.template.nanamare.domain.model.CreditModel
+import com.template.nanamare.domain.model.VideoModel
 import com.template.nanamare.presentation.anim.SimpleAnimation
 import com.template.nanamare.presentation.dialog.VideoFragment
 import com.template.nanamare.presentation.mapper.ActorPresentationMapper
+import com.template.nanamare.presentation.mapper.ResultPresentationMapper
 import com.template.nanamare.presentation.vm.MovieInfoViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
@@ -47,7 +48,7 @@ class MovieInfoActivity : BaseActivity<MovieInfoActivityBinding>(R.layout.movie_
                 when (it) {
                     is NetworkState.Init -> hideLoadingPopup()
                     is NetworkState.Loading -> showLoadingPopup()
-                    is NetworkState.Success<VideoResponse> -> getUrl(it)
+                    is NetworkState.Success<VideoModel> -> getUrl(it)
                     is NetworkState.Error -> showToast(it.throwable.toString())
                     is NetworkState.ServerError -> showToast(it.toString())
                 }
@@ -73,8 +74,9 @@ class MovieInfoActivity : BaseActivity<MovieInfoActivityBinding>(R.layout.movie_
         movieInfoViewModel.liveActor.value = creditModel.cast.map(ActorPresentationMapper::mapToPresentation)
     }
 
-    private fun getUrl(it: NetworkState.Success<VideoResponse>) {
-        it.item.results.asSequence()
+    private fun getUrl(it: NetworkState.Success<VideoModel>) {
+        it.item.results.map(ResultPresentationMapper::mapToPresentation)
+            .asSequence()
             .filter { "YouTube".toLowerCase(Locale.getDefault()) == it.site.toLowerCase(Locale.getDefault()) }
             .reduce { acc, result -> if (acc.size > result.size) acc else result }.let {
                 VideoFragment(Uri.parse(VIDEO_URL).buildUpon().appendQueryParameter("v", it.key).build().toString()).show(supportFragmentManager, VideoFragment::class.simpleName)

@@ -40,16 +40,17 @@ class VideoFragment(private val liveVideoUrl: String? = null) :
             Util.getUserAgent(requireContext(), AppApplication.TAG_APPLICATION)
         )
         object : YouTubeExtractor(requireContext()) {
-            override fun onExtractionComplete(ytFiles: SparseArray<YtFile>, vMeta: VideoMeta) {
-                val iTag = 22 // quality
-                val videoSource: MediaSource = ProgressiveMediaSource.Factory(dataSourceFactory)
-                    .createMediaSource(Uri.parse(ytFiles[iTag].url))
-                binding.videoView.player = SimpleExoPlayer.Builder(requireContext()).build().apply {
-                    playWhenReady = playWhenReady;
-                    seekTo(currentWindowIndex, 0)
-                    prepare(videoSource, false, false)
+            override fun onExtractionComplete(ytFiles: SparseArray<YtFile>?, vMeta: VideoMeta) {
+                ytFiles?.let {
+                    val iTag = 22 // quality
+                    val videoSource: MediaSource = ProgressiveMediaSource.Factory(dataSourceFactory)
+                        .createMediaSource(Uri.parse(it[iTag].url))
+                    binding.videoView.player = SimpleExoPlayer.Builder(requireContext()).build().apply {
+                        playWhenReady = playWhenReady;
+                        seekTo(currentWindowIndex, 0)
+                        prepare(videoSource, false, false)
+                    }
                 }
-
             }
         }.extract(videoViewModel.liveVideoPath.value, true, true)
 

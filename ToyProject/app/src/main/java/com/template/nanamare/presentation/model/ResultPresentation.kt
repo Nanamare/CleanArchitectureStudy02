@@ -1,6 +1,6 @@
-package com.template.nanamare.domain.model
+package com.template.nanamare.presentation.model
 
-data class ResultModel(
+class ResultPresentation(
     val id: String?,
     val iso31661: String?,
     val iso6391: String?,
@@ -9,4 +9,4 @@ data class ResultModel(
     val site: String,
     val size: Int,
     val type: String?
-): BaseDomainModel
+): BasePresentation
